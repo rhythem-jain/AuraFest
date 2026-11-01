@@ -19,15 +19,7 @@ export interface HeaderProps {
   onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
 }
 
-export function Header({
-  plan,
-  tab,
-  onTabChange,
-  onReset,
-  tabs,
-  refs,
-  onKeyDown,
-}: HeaderProps) {
+export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown }: HeaderProps) {
   const [confirmReset, setConfirmReset] = useState(false);
   const [share, setShare] = useState<{ status: 'copied' | 'manual'; url: string } | null>(null);
   const readiness = plan ? planReadiness(plan) : null;
@@ -61,9 +53,7 @@ export function Header({
                   Luxe
                 </span>
               </div>
-              <p className="text-[11px] font-medium text-ink-soft truncate">
-                Celebration OS
-              </p>
+              <p className="text-[11px] font-medium text-ink-soft truncate">Celebration OS</p>
             </div>
           </div>
           <button
@@ -182,7 +172,9 @@ export function Header({
           {share?.status === 'copied' && (
             <div className="flex items-center gap-2 rounded-xl border border-ok/30 bg-ok-soft px-3 py-2 text-xs font-medium text-ok shadow-sm">
               <Icon name="check" className="h-4 w-4 shrink-0 text-ok" />
-              <span>Link copied to clipboard. Anyone with this link can view this celebration plan.</span>
+              <span>
+                Link copied to clipboard. Anyone with this link can view this celebration plan.
+              </span>
             </div>
           )}
           {share?.status === 'manual' && (

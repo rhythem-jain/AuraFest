@@ -54,7 +54,8 @@ export default {
         card: '0 2px 12px -2px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(15, 23, 42, 0.04)',
         elevated: '0 12px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06)',
         glass: '0 8px 32px 0 rgba(31, 38, 135, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6)',
-        'glass-glow': '0 0 30px -4px rgba(124, 58, 237, 0.28), 0 8px 24px -4px rgba(15, 23, 42, 0.08)',
+        'glass-glow':
+          '0 0 30px -4px rgba(124, 58, 237, 0.28), 0 8px 24px -4px rgba(15, 23, 42, 0.08)',
       },
       backdropBlur: {
         glass: '16px',

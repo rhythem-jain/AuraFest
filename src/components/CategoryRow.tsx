@@ -1,11 +1,5 @@
 import { memo, useState } from 'react';
-import {
-  categoryLabel,
-  parseINR,
-  percentOf,
-  toLakh,
-  type CategoryNeed,
-} from '../engine';
+import { categoryLabel, parseINR, percentOf, toLakh, type CategoryNeed } from '../engine';
 import type { Category, Occasion } from '../schemas';
 import { Icon } from './Icon';
 import { EstimateBadge } from './ui';
@@ -70,7 +64,10 @@ export const CategoryRow = memo(function CategoryRow({
     >
       <div>
         <div className="flex items-center gap-2.5">
-          <span aria-hidden="true" className={`h-3 w-3 shrink-0 rounded-full shadow-sm ${swatchClass}`} />
+          <span
+            aria-hidden="true"
+            className={`h-3 w-3 shrink-0 rounded-full shadow-sm ${swatchClass}`}
+          />
           <h3 className="text-sm font-bold text-ink">{label}</h3>
         </div>
         <p className="tabular mt-0.5 text-xs font-semibold text-ink-soft">

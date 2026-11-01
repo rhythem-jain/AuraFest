@@ -78,7 +78,11 @@ export function AiError({ message, onRetry }: { message: string; onRetry: () => 
         <Icon name="alert" className="mt-0.5 h-4 w-4 shrink-0 text-warn" />
         <span>{message}</span>
       </p>
-      <button type="button" className="btn-secondary mt-3 min-h-9 px-3.5 text-xs font-semibold" onClick={onRetry}>
+      <button
+        type="button"
+        className="btn-secondary mt-3 min-h-9 px-3.5 text-xs font-semibold"
+        onClick={onRetry}
+      >
         Try again
       </button>
     </div>
@@ -105,7 +109,11 @@ export function EmptyState({
       <p className="mt-2 text-sm text-ink-soft">
         Configure your budget, timeline, and vendors in one connected operating plan.
       </p>
-      <button type="button" className="btn-primary mt-6 min-h-11 px-6 shadow-glass-glow" onClick={onAction}>
+      <button
+        type="button"
+        className="btn-primary mt-6 min-h-11 px-6 shadow-glass-glow"
+        onClick={onAction}
+      >
         {action}
       </button>
     </div>
@@ -132,10 +140,18 @@ export function Confirm({
     >
       <p className="text-sm font-semibold text-ink">{prompt}</p>
       <div className="mt-3 flex flex-wrap gap-2.5">
-        <button type="button" className="btn-primary min-h-9 px-4 text-xs font-semibold" onClick={onConfirm}>
+        <button
+          type="button"
+          className="btn-primary min-h-9 px-4 text-xs font-semibold"
+          onClick={onConfirm}
+        >
           {confirmLabel}
         </button>
-        <button type="button" className="btn-secondary min-h-9 px-4 text-xs font-semibold" onClick={onCancel}>
+        <button
+          type="button"
+          className="btn-secondary min-h-9 px-4 text-xs font-semibold"
+          onClick={onCancel}
+        >
           Cancel
         </button>
       </div>

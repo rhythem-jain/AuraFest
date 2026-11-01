@@ -35,7 +35,10 @@ export function PlanExtras({
         </span>
       </summary>
       <div className="mt-4 space-y-5 border-t border-line/60 pt-4">
-        <Field label="Style or vibe" hint="For example: royal traditional, minimalist elegance, pastel florals.">
+        <Field
+          label="Style or vibe"
+          hint="For example: royal traditional, minimalist elegance, pastel florals."
+        >
           {(p) => (
             <input
               {...p}

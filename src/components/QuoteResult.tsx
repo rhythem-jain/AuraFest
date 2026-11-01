@@ -53,9 +53,12 @@ export function QuoteResult({
 
       {cost !== null ? (
         <div className="rounded-xl border border-line bg-paper/60 p-3.5 text-xs sm:text-sm font-medium text-ink">
-          Effective cost <strong className="font-bold text-accent">{formatINR(cost)}</strong> against a{' '}
-          {categoryLabel(plan.occasion, quote.category)} budget of{' '}
-          <strong className="font-bold text-ink">{formatINR(plan.allocation[quote.category])}</strong>.
+          Effective cost <strong className="font-bold text-accent">{formatINR(cost)}</strong>{' '}
+          against a {categoryLabel(plan.occasion, quote.category)} budget of{' '}
+          <strong className="font-bold text-ink">
+            {formatINR(plan.allocation[quote.category])}
+          </strong>
+          .
         </div>
       ) : (
         <p className="text-xs font-semibold text-warn">
@@ -63,7 +66,11 @@ export function QuoteResult({
         </p>
       )}
 
-      <div role="status" aria-live="polite" className="rounded-2xl border border-line bg-card p-4 shadow-sm">
+      <div
+        role="status"
+        aria-live="polite"
+        className="rounded-2xl border border-line bg-card p-4 shadow-sm"
+      >
         <h4 className="text-xs font-bold uppercase tracking-wider text-ink">Things to check</h4>
         {flags.length === 0 ? (
           <p className="mt-2 flex items-center gap-2 text-xs font-semibold text-ok">
@@ -84,12 +91,17 @@ export function QuoteResult({
 
       {missing.length > 0 && (
         <p className="text-xs font-medium text-ink-soft">
-          {missing.length} details are missing. Copy the inquiry message below to ask the vendor for exactly those.
+          {missing.length} details are missing. Copy the inquiry message below to ask the vendor for
+          exactly those.
         </p>
       )}
 
       <div className="flex flex-wrap gap-2.5 pt-1">
-        <button type="button" className="btn-secondary min-h-10 px-4 text-xs font-semibold" onClick={() => void copyDraft()}>
+        <button
+          type="button"
+          className="btn-secondary min-h-10 px-4 text-xs font-semibold"
+          onClick={() => void copyDraft()}
+        >
           <Icon name="mail" className="h-4 w-4 text-accent" />
           Copy inquiry message
         </button>
@@ -123,13 +135,19 @@ export function QuoteResult({
           <label htmlFor="inquiry-draft" className="label text-xs">
             Inquiry message
           </label>
-          <textarea id="inquiry-draft" readOnly className="input min-h-24 text-xs font-mono" value={draft} />
+          <textarea
+            id="inquiry-draft"
+            readOnly
+            className="input min-h-24 text-xs font-mono"
+            value={draft}
+          />
         </div>
       )}
 
       {full && (
         <p className="text-xs font-semibold text-warn">
-          You already have {MAX_QUOTES_PER_CATEGORY} quotations for this category. Remove one below to add more.
+          You already have {MAX_QUOTES_PER_CATEGORY} quotations for this category. Remove one below
+          to add more.
         </p>
       )}
     </div>

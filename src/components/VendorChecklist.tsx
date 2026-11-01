@@ -29,7 +29,8 @@ export function VendorChecklist({
             Vendor checklist
           </h2>
           <p className="hint">
-            Track vendor outreach. Accepting or saving a quotation automatically updates procurement status.
+            Track vendor outreach. Accepting or saving a quotation automatically updates procurement
+            status.
           </p>
         </div>
         <span className="rounded-full border border-accent/25 bg-accent-soft px-3.5 py-1 text-xs font-bold text-accent shadow-sm backdrop-blur-sm">

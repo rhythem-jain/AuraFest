@@ -53,7 +53,11 @@ export function AskPlanner({ plan, today }: { plan: Plan; today: string }) {
           <span>Ask the planner</span>
         </h3>
         {turns.length > 0 && (
-          <button type="button" className="btn-quiet min-h-8 text-xs font-semibold" onClick={() => setTurns([])}>
+          <button
+            type="button"
+            className="btn-quiet min-h-8 text-xs font-semibold"
+            onClick={() => setTurns([])}
+          >
             New conversation
           </button>
         )}

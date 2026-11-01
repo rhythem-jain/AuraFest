@@ -97,7 +97,9 @@ export function TimelineTab({
                   ? ' · today'
                   : ' · this date has passed'}
             </p>
-            <p className="hint">Delay a task and everything that depends on it moves too in real time.</p>
+            <p className="hint">
+              Delay a task and everything that depends on it moves too in real time.
+            </p>
           </div>
           <button
             type="button"
@@ -120,7 +122,8 @@ export function TimelineTab({
             data-testid="compressed-note"
             className="mt-4 rounded-xl border border-accent/25 bg-accent-soft/50 p-3.5 text-xs font-medium text-ink backdrop-blur-sm"
           >
-            Your event is {compression.availableDays} days away, sooner than the usual {compression.spanDays}-day plan, so earlier tasks have been scheduled closer together.
+            Your event is {compression.availableDays} days away, sooner than the usual{' '}
+            {compression.spanDays}-day plan, so earlier tasks have been scheduled closer together.
           </div>
         )}
 
@@ -144,7 +147,10 @@ export function TimelineTab({
           <section key={group.order} aria-labelledby={`phase-${group.order}`} className="space-y-3">
             <div className="flex items-center gap-2 px-1">
               <span className="h-2 w-2 rounded-full bg-accent" />
-              <h3 id={`phase-${group.order}`} className="text-sm font-bold uppercase tracking-wider text-ink-soft">
+              <h3
+                id={`phase-${group.order}`}
+                className="text-sm font-bold uppercase tracking-wider text-ink-soft"
+              >
                 {group.label}
               </h3>
             </div>

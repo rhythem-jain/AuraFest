@@ -66,8 +66,12 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
       <section className="card shadow-glass backdrop-blur-xl" aria-labelledby="summary-h">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h2 id="summary-h" className="text-lg font-bold sm:text-xl">Budget at a glance</h2>
-            <p className="mt-0.5 text-xs text-ink-soft">Dynamic auto-balancing keeps your total budget balanced in real time.</p>
+            <h2 id="summary-h" className="text-lg font-bold sm:text-xl">
+              Budget at a glance
+            </h2>
+            <p className="mt-0.5 text-xs text-ink-soft">
+              Dynamic auto-balancing keeps your total budget balanced in real time.
+            </p>
           </div>
           <span className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent shadow-sm">
             Live Rebalancing
@@ -75,35 +79,62 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
         </div>
         <dl className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-line/70 bg-field/60 p-4.5 shadow-sm backdrop-blur-sm">
-            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">Total budget</dt>
-            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ink sm:text-3xl">{formatINR(status.total)}</dd>
+            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+              Total budget
+            </dt>
+            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ink sm:text-3xl">
+              {formatINR(status.total)}
+            </dd>
             <dd className="mt-1 text-xs font-semibold text-accent">{toLakh(status.total)}</dd>
           </div>
           <div className="rounded-2xl border border-line/70 bg-field/60 p-4.5 shadow-sm backdrop-blur-sm">
-            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">Committed (verified quotations)</dt>
-            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ok sm:text-3xl">{formatINR(status.committed)}</dd>
+            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+              Committed (verified quotations)
+            </dt>
+            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ok sm:text-3xl">
+              {formatINR(status.committed)}
+            </dd>
             <dd className="mt-1 text-xs text-ink-soft">Locked by signed quotes</dd>
           </div>
           <div className="rounded-2xl border border-line/70 bg-field/60 p-4.5 shadow-sm backdrop-blur-sm">
-            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">Estimated (not yet quoted)</dt>
-            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ink sm:text-3xl">{formatINR(status.estimated)}</dd>
+            <dt className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+              Estimated (not yet quoted)
+            </dt>
+            <dd className="tabular mt-1 font-display text-2xl font-extrabold text-ink sm:text-3xl">
+              {formatINR(status.estimated)}
+            </dd>
             <dd className="mt-1 text-xs text-ink-soft">Engine baseline allocations</dd>
           </div>
         </dl>
-        <div className="mt-6 pt-2"><AllocationBar plan={plan} /></div>
+        <div className="mt-6 pt-2">
+          <AllocationBar plan={plan} />
+        </div>
       </section>
 
-      <div role="status" aria-live="polite" data-testid="over-budget-region" className="sticky top-20 z-20">
+      <div
+        role="status"
+        aria-live="polite"
+        data-testid="over-budget-region"
+        className="sticky top-20 z-20"
+      >
         {over ? (
           <div className="flex h-[4.75rem] items-center gap-3.5 rounded-2xl border border-warn/40 bg-warn-soft/95 px-5 text-warn shadow-elevated backdrop-blur-md">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-warn text-on-accent shadow-sm">
               <Icon name="alert" className="h-5 w-5" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-bold sm:text-base">Over budget by {formatINR(status.overBy)}</p>
-              <p className="truncate text-xs font-medium sm:text-sm">{status.overByPct}% of your total. Nothing was changed automatically.</p>
+              <p className="truncate text-sm font-bold sm:text-base">
+                Over budget by {formatINR(status.overBy)}
+              </p>
+              <p className="truncate text-xs font-medium sm:text-sm">
+                {status.overByPct}% of your total. Nothing was changed automatically.
+              </p>
             </div>
-            <button type="button" className="btn-primary min-h-10 shrink-0 border border-warn/30 bg-warn text-white shadow-sm hover:bg-warn/90" onClick={showOptions}>
+            <button
+              type="button"
+              className="btn-primary min-h-10 shrink-0 border border-warn/30 bg-warn text-white shadow-sm hover:bg-warn/90"
+              onClick={showOptions}
+            >
               Options
             </button>
           </div>
@@ -112,15 +143,20 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-ok-soft text-ok shadow-sm">
               <Icon name="check" className="h-5 w-5 text-ok" />
             </div>
-            <p className="truncate text-sm font-semibold text-ink">Within budget. Everything adds up to {formatINR(status.total)}.</p>
+            <p className="truncate text-sm font-semibold text-ink">
+              Within budget. Everything adds up to {formatINR(status.total)}.
+            </p>
           </div>
         )}
       </div>
 
       <section aria-labelledby="cats-h">
-        <h2 id="cats-h" className="text-lg font-bold sm:text-xl">Where the money goes</h2>
+        <h2 id="cats-h" className="text-lg font-bold sm:text-xl">
+          Where the money goes
+        </h2>
         <p className="mb-4 mt-1 text-xs text-ink-soft sm:text-sm">
-          Move one slider and the others adjust to keep the total the same. Lock a category to protect it.
+          Move one slider and the others adjust to keep the total the same. Lock a category to
+          protect it.
         </p>
         <div className="card divide-y divide-line/60 !p-0 shadow-glass backdrop-blur-xl">
           {needs.map((need) => (
@@ -139,12 +175,15 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
           ))}
         </div>
         <p className="mt-3 text-xs text-ink-soft">
-          Splits start from typical presets for a {OCCASION_LABELS[plan.occasion].toLowerCase()} and stay estimates until you accept a vendor quotation.
+          Splits start from typical presets for a {OCCASION_LABELS[plan.occasion].toLowerCase()} and
+          stay estimates until you accept a vendor quotation.
         </p>
       </section>
 
       <section className="card shadow-glass backdrop-blur-xl" aria-labelledby="controls-h">
-        <h2 id="controls-h" className="text-lg font-bold sm:text-xl">Guests and totals</h2>
+        <h2 id="controls-h" className="text-lg font-bold sm:text-xl">
+          Guests and totals
+        </h2>
         <div className="mt-4 grid gap-5 sm:grid-cols-3">
           <div>
             <Field label="Number of guests">
@@ -167,7 +206,9 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
               )}
             </Field>
             <div className="mt-2 flex items-center gap-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-ink-soft">Quick scenario:</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-ink-soft">
+                Quick scenario:
+              </span>
               {[-25, 25, 50].map((delta) => {
                 const target = Math.max(1, plan.guests + delta);
                 return (
@@ -198,7 +239,10 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
               />
             )}
           </Field>
-          <Field label="Catering cost per plate (₹)" hint="Starts from your catering share. Edit if you know better.">
+          <Field
+            label="Catering cost per plate (₹)"
+            hint="Starts from your catering share. Edit if you know better."
+          >
             {(p) => (
               <input
                 {...p}
@@ -214,7 +258,8 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
         <div className="mt-5 rounded-2xl border border-line/70 bg-field/60 p-4 shadow-sm backdrop-blur-sm">
           <p className="tabular text-sm font-medium text-ink" data-testid="guest-impact">
             {plan.guests} guests × {formatINR(Math.round(impact.perPlate))} per plate needs{' '}
-            <strong className="font-bold text-accent">{formatINR(impact.requiredCatering)}</strong> for catering. You have budgeted{' '}
+            <strong className="font-bold text-accent">{formatINR(impact.requiredCatering)}</strong>{' '}
+            for catering. You have budgeted{' '}
             <strong className="font-bold text-ink">{formatINR(impact.currentCatering)}</strong>
             {impact.overBy > 0 ? (
               <>

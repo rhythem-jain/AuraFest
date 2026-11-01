@@ -77,7 +77,8 @@ export default function App({
     const index = TABS.findIndex((t) => t.id === tab);
     let next = index;
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % TABS.length;
-    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + TABS.length) % TABS.length;
+    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
+      next = (index - 1 + TABS.length) % TABS.length;
     else if (event.key === 'Home') next = 0;
     else if (event.key === 'End') next = TABS.length - 1;
     else return;
@@ -139,14 +140,22 @@ export default function App({
             <div
               role="status"
               className={`mb-6 flex items-start justify-between gap-3 rounded-2xl border p-4 text-sm shadow-sm ${
-                notice.kind === 'bad_link' ? 'border-warn/40 bg-warn-soft text-warn' : 'border-line bg-accent-soft text-ink'
+                notice.kind === 'bad_link'
+                  ? 'border-warn/40 bg-warn-soft text-warn'
+                  : 'border-line bg-accent-soft text-ink'
               }`}
             >
               <p className="flex items-center gap-2 font-medium">
-                {notice.kind === 'bad_link' && <Icon name="alert" className="h-4 w-4 shrink-0 text-warn" />}
+                {notice.kind === 'bad_link' && (
+                  <Icon name="alert" className="h-4 w-4 shrink-0 text-warn" />
+                )}
                 <span>{notice.message}</span>
               </p>
-              <button type="button" className="btn-quiet min-h-8 shrink-0 text-xs font-semibold" onClick={() => setNotice(null)}>
+              <button
+                type="button"
+                className="btn-quiet min-h-8 shrink-0 text-xs font-semibold"
+                onClick={() => setNotice(null)}
+              >
                 Dismiss
               </button>
             </div>

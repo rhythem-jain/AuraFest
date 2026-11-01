@@ -1,4 +1,5 @@
 # PROJECT ORIGINALITY & ATTRIBUTION DISCLOSURE
+
 ## PromptWars Virtual Challenge 5: Celebration & Event Planner
 
 ---
@@ -23,21 +24,22 @@ This document records the engineering provenance, reuse attribution, independent
 
 ### 3. Independently Created & Modified Components
 
-| Module / Asset | Nature of Innovation | Technical Distinction |
-|---|---|---|
-| **Branding & Visual Identity** | **100% Original Creative Work** | Rebranded to **AuraFest Luxe**. Created original geometric liquid prism SVG brandmark (`BrandMark`), custom typography hierarchy, and luminous color direction. |
-| **Design System (Liquid Glass)** | **100% Original Creative Work** | Designed an Apple Liquid Glass UI system featuring frosted glass substrates (`backdrop-blur-xl`, `bg-card/75`), multi-layer specular highlights, luminous glass pill badges, and atmospheric ambient radial gradients. |
-| **Budget Simulation Engine** | **Substantial Functional Enhancement** | Added interactive 1-click quick-scenario guest scaling chips (`-25`, `+25`, `+50`), contingency reserve guidance, and live recalculation telemetry. |
-| **Timeline & RunSheet** | **Enhanced Interface & Export** | Refined day-of protocol run sheet with glass time pills, critical path status alerts, and synchronized `.ics` calendar generation. |
-| **Vendor Intelligence Matrix** | **Enhanced Visual Telemetry** | Elevated quotation comparison table with glass header cards, instant WhatsApp/email quote parser with streaming thinking trace, and clear procurement status indicators. |
-| **Assistant & Copilot Dock** | **Enhanced AI Interaction** | Translucent conversational chat bubbles, deterministic insight severity prioritization (Urgent, Needs Attention, Suggestion), and Gemini Executive Review. |
-| **Tooling & Engine Runtime** | **Infrastructure Upgrade** | Upgraded Node.js runtime compatibility to Node 22 LTS with native Rolldown binding support. |
+| Module / Asset                   | Nature of Innovation                   | Technical Distinction                                                                                                                                                                                                  |
+| -------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Branding & Visual Identity**   | **100% Original Creative Work**        | Rebranded to **AuraFest Luxe**. Created original geometric liquid prism SVG brandmark (`BrandMark`), custom typography hierarchy, and luminous color direction.                                                        |
+| **Design System (Liquid Glass)** | **100% Original Creative Work**        | Designed an Apple Liquid Glass UI system featuring frosted glass substrates (`backdrop-blur-xl`, `bg-card/75`), multi-layer specular highlights, luminous glass pill badges, and atmospheric ambient radial gradients. |
+| **Budget Simulation Engine**     | **Substantial Functional Enhancement** | Added interactive 1-click quick-scenario guest scaling chips (`-25`, `+25`, `+50`), contingency reserve guidance, and live recalculation telemetry.                                                                    |
+| **Timeline & RunSheet**          | **Enhanced Interface & Export**        | Refined day-of protocol run sheet with glass time pills, critical path status alerts, and synchronized `.ics` calendar generation.                                                                                     |
+| **Vendor Intelligence Matrix**   | **Enhanced Visual Telemetry**          | Elevated quotation comparison table with glass header cards, instant WhatsApp/email quote parser with streaming thinking trace, and clear procurement status indicators.                                               |
+| **Assistant & Copilot Dock**     | **Enhanced AI Interaction**            | Translucent conversational chat bubbles, deterministic insight severity prioritization (Urgent, Needs Attention, Suggestion), and Gemini Executive Review.                                                             |
+| **Tooling & Engine Runtime**     | **Infrastructure Upgrade**             | Upgraded Node.js runtime compatibility to Node 22 LTS with native Rolldown binding support.                                                                                                                            |
 
 ---
 
 ### 4. Third-Party Libraries & Dependencies
 
 All dependencies are maintained under permissive open-source licenses:
+
 - **React 18** (MIT): Declarative component UI runtime.
 - **TypeScript 5+ / 6** (Apache 2.0): Strict type system.
 - **Tailwind CSS 3.4** (MIT): Utility-first CSS framework with custom glass tokens.

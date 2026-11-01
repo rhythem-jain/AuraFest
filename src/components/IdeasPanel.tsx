@@ -81,7 +81,10 @@ export default function IdeasPanel({ plan }: { plan: Plan }) {
               </h3>
               <ul className="mt-2.5 grid gap-3 md:grid-cols-2">
                 {data.themes.map((t) => (
-                  <li key={t.title} className="rounded-2xl border border-line/75 bg-card/85 p-4 shadow-sm hover:border-accent/40 backdrop-blur-sm transition-all">
+                  <li
+                    key={t.title}
+                    className="rounded-2xl border border-line/75 bg-card/85 p-4 shadow-sm hover:border-accent/40 backdrop-blur-sm transition-all"
+                  >
                     <p className="font-bold text-ink">{t.title}</p>
                     <p className="mt-1 text-xs leading-relaxed text-ink-soft">{t.description}</p>
                   </li>

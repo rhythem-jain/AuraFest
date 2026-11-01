@@ -22,10 +22,17 @@ function CategoryTable({
     return { s, cost, flags: compareQuote(s.quote, plan) };
   });
   const cell = (render: (c: (typeof cols)[number]) => React.ReactNode) =>
-    cols.map((c) => <td key={c.s.id} className="px-4 py-3 align-top text-xs sm:text-sm">{render(c)}</td>);
+    cols.map((c) => (
+      <td key={c.s.id} className="px-4 py-3 align-top text-xs sm:text-sm">
+        {render(c)}
+      </td>
+    ));
 
   return (
-    <section className="card overflow-x-auto shadow-glass backdrop-blur-xl" aria-labelledby={`cmp-${category}`}>
+    <section
+      className="card overflow-x-auto shadow-glass backdrop-blur-xl"
+      aria-labelledby={`cmp-${category}`}
+    >
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line/60 pb-3">
         <h3 id={`cmp-${category}`} className="text-base font-bold text-ink">
           {label}: compare quotations
@@ -56,11 +63,21 @@ function CategoryTable({
         </thead>
         <tbody className="divide-y divide-line/60">
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Effective cost for {plan.guests} guests</th>
-            {cell((c) => (c.cost === null ? '-' : <strong className="font-bold text-accent">{formatINR(c.cost)}</strong>))}
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Effective cost for {plan.guests} guests
+            </th>
+            {cell((c) =>
+              c.cost === null ? (
+                '-'
+              ) : (
+                <strong className="font-bold text-accent">{formatINR(c.cost)}</strong>
+              ),
+            )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Against budget</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Against budget
+            </th>
             {cell((c) =>
               c.cost === null ? (
                 '-'
@@ -78,23 +95,31 @@ function CategoryTable({
             )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Per plate</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Per plate
+            </th>
             {cell((c) =>
               c.s.quote.pricePerPlate === null ? '-' : formatINR(c.s.quote.pricePerPlate),
             )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Guest minimum</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Guest minimum
+            </th>
             {cell((c) => c.s.quote.guestMinimum ?? '-')}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Advance</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Advance
+            </th>
             {cell((c) =>
               c.s.quote.advancePercent === null ? '-' : `${c.s.quote.advancePercent}%`,
             )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Tax</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Tax
+            </th>
             {cell((c) =>
               c.s.quote.taxIncluded === null
                 ? 'Not stated'
@@ -104,27 +129,35 @@ function CategoryTable({
             )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Overtime per hr</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Overtime per hr
+            </th>
             {cell((c) =>
-              c.s.quote.overtimeFeePerHour === null
-                ? '-'
-                : formatINR(c.s.quote.overtimeFeePerHour),
+              c.s.quote.overtimeFeePerHour === null ? '-' : formatINR(c.s.quote.overtimeFeePerHour),
             )}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Inclusions</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Inclusions
+            </th>
             {cell((c) => (c.s.quote.inclusions.length ? c.s.quote.inclusions.join(', ') : '-'))}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Exclusions</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Exclusions
+            </th>
             {cell((c) => (c.s.quote.exclusions.length ? c.s.quote.exclusions.join(', ') : '-'))}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Cancellation</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Cancellation
+            </th>
             {cell((c) => c.s.quote.cancellationPolicy ?? 'Not stated')}
           </tr>
           <tr>
-            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">Actions</th>
+            <th scope="row" className="px-4 py-3 font-medium text-ink-soft">
+              Actions
+            </th>
             {cell((c) => (
               <div className="flex flex-wrap gap-2">
                 {!c.s.accepted && c.cost !== null && (
@@ -152,13 +185,7 @@ function CategoryTable({
   );
 }
 
-export function QuoteComparison({
-  plan,
-  dispatch,
-}: {
-  plan: Plan;
-  dispatch: (a: Action) => void;
-}) {
+export function QuoteComparison({ plan, dispatch }: { plan: Plan; dispatch: (a: Action) => void }) {
   const byCategory = CATEGORIES.map((c) => ({
     category: c,
     quotes: plan.quotes.filter((q) => q.category === c),

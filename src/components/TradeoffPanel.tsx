@@ -66,7 +66,9 @@ export function TradeoffPanel({
             <h2 id="options-h" className="text-lg font-bold sm:text-xl">
               Ways to close the gap
             </h2>
-            <p className="hint">Deterministic calculations. Nothing changes until you explicitly apply an option.</p>
+            <p className="hint">
+              Deterministic calculations. Nothing changes until you explicitly apply an option.
+            </p>
           </div>
         </div>
         <button

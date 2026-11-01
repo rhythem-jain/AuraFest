@@ -63,7 +63,8 @@ export function QuoteAnalyzer({
             Analyze vendor quotation
           </h2>
           <p className="hint">
-            Paste WhatsApp text or email quotes. Gemini parses fine print, advances, and hidden costs into structured data.
+            Paste WhatsApp text or email quotes. Gemini parses fine print, advances, and hidden
+            costs into structured data.
           </p>
         </div>
       </div>

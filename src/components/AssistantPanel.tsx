@@ -14,10 +14,28 @@ import { Icon, type IconName } from './Icon';
 import { AnswerMeta } from './ThinkingTrace';
 import { AiError, AiLoading } from './ui';
 
-const SEVERITY: Record<InsightSeverity, { label: string; icon: IconName; tone: string; bg: string }> = {
-  critical: { label: 'Urgent', icon: 'alert', tone: 'text-warn', bg: 'bg-warn-soft border-warn/30' },
-  warning: { label: 'Needs attention', icon: 'clock', tone: 'text-warn', bg: 'bg-warn-soft/60 border-warn/25' },
-  suggestion: { label: 'Suggestion', icon: 'sparkle', tone: 'text-accent', bg: 'bg-accent-soft/60 border-accent/25' },
+const SEVERITY: Record<
+  InsightSeverity,
+  { label: string; icon: IconName; tone: string; bg: string }
+> = {
+  critical: {
+    label: 'Urgent',
+    icon: 'alert',
+    tone: 'text-warn',
+    bg: 'bg-warn-soft border-warn/30',
+  },
+  warning: {
+    label: 'Needs attention',
+    icon: 'clock',
+    tone: 'text-warn',
+    bg: 'bg-warn-soft/60 border-warn/25',
+  },
+  suggestion: {
+    label: 'Suggestion',
+    icon: 'sparkle',
+    tone: 'text-accent',
+    bg: 'bg-accent-soft/60 border-accent/25',
+  },
 };
 
 const TAB_LABEL: Record<InsightTab, string> = {
@@ -37,12 +55,16 @@ function InsightRow({
 }) {
   const s = SEVERITY[insight.severity];
   return (
-    <li className={`flex flex-wrap items-center justify-between gap-3 rounded-xl border p-3.5 transition-all ${s.bg}`}>
+    <li
+      className={`flex flex-wrap items-center justify-between gap-3 rounded-xl border p-3.5 transition-all ${s.bg}`}
+    >
       <div className="flex min-w-0 flex-1 items-start gap-3">
         <Icon name={s.icon} className={`mt-0.5 h-4 w-4 shrink-0 ${s.tone}`} />
         <div className="min-w-0">
           <p className="font-semibold text-ink">
-            <span className={`mr-2 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${s.tone} bg-card/80`}>
+            <span
+              className={`mr-2 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${s.tone} bg-card/80`}
+            >
               {s.label}
             </span>
             {insight.title}
@@ -108,7 +130,8 @@ export function AssistantPanel({
             <p className="text-xs text-ink-soft">
               {urgent > 0 ? (
                 <span className="font-semibold text-warn">
-                  {urgent} {urgent === 1 ? 'thing needs your attention' : 'things need your attention'}
+                  {urgent}{' '}
+                  {urgent === 1 ? 'thing needs your attention' : 'things need your attention'}
                 </span>
               ) : (
                 <span className="font-semibold text-ok">Nothing urgent</span>
@@ -137,11 +160,16 @@ export function AssistantPanel({
           <AiError message={ai.state.message} onRetry={() => void askAi()} />
         )}
         {ai.state.status === 'done' && (
-          <div data-testid="ai-review" className="rounded-2xl border border-accent/25 bg-accent-soft/50 p-4 shadow-sm backdrop-blur-sm">
+          <div
+            data-testid="ai-review"
+            className="rounded-2xl border border-accent/25 bg-accent-soft/50 p-4 shadow-sm backdrop-blur-sm"
+          >
             <p className="text-xs font-bold uppercase tracking-wider text-accent">
               Gemini Executive Review
             </p>
-            <p className="mt-1 text-sm font-medium leading-relaxed text-ink">{ai.state.data.summary}</p>
+            <p className="mt-1 text-sm font-medium leading-relaxed text-ink">
+              {ai.state.data.summary}
+            </p>
             {ai.state.data.steps.length > 0 && (
               <ol className="mt-2.5 list-decimal space-y-1 pl-5 text-xs font-semibold text-ink">
                 {ai.state.data.steps.map((s) => (

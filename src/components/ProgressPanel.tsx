@@ -85,7 +85,12 @@ export function ProgressPanel({
             </div>
             <h2 className="text-base font-bold text-ink">Plan progress</h2>
           </div>
-          <button ref={closeRef} type="button" className="btn-secondary min-h-8 px-3 text-xs font-semibold" onClick={onToggle}>
+          <button
+            ref={closeRef}
+            type="button"
+            className="btn-secondary min-h-8 px-3 text-xs font-semibold"
+            onClick={onToggle}
+          >
             <Icon name="x" className="h-3.5 w-3.5" />
             Hide
           </button>
@@ -94,9 +99,9 @@ export function ProgressPanel({
         <div className="flex-1 space-y-6 overflow-y-auto p-5">
           <div className="rounded-2xl border border-line/70 bg-field/60 p-4 shadow-sm backdrop-blur-sm">
             <p className="text-xs font-semibold text-ink sm:text-sm">
-              <strong className="text-accent">{readiness.percent}% ready.</strong> {readiness.tasksDone} of{' '}
-              {readiness.tasksTotal} tasks done, {readiness.quotesVerified} of{' '}
-              {readiness.quotesTotal} vendors confirmed.
+              <strong className="text-accent">{readiness.percent}% ready.</strong>{' '}
+              {readiness.tasksDone} of {readiness.tasksTotal} tasks done, {readiness.quotesVerified}{' '}
+              of {readiness.quotesTotal} vendors confirmed.
             </p>
             <progress
               className="mt-2 h-2 w-full overflow-hidden rounded-full accent-accent"
@@ -107,10 +112,17 @@ export function ProgressPanel({
 
           <section aria-labelledby="progress-vendors">
             <div className="flex items-center justify-between gap-2">
-              <h3 id="progress-vendors" className="text-xs font-bold uppercase tracking-wider text-ink-soft">
+              <h3
+                id="progress-vendors"
+                className="text-xs font-bold uppercase tracking-wider text-ink-soft"
+              >
                 Vendors and quotations
               </h3>
-              <button type="button" className="btn-quiet min-h-7 text-xs font-semibold" onClick={() => onNavigate('vendors')}>
+              <button
+                type="button"
+                className="btn-quiet min-h-7 text-xs font-semibold"
+                onClick={() => onNavigate('vendors')}
+              >
                 Open
               </button>
             </div>
@@ -134,10 +146,17 @@ export function ProgressPanel({
 
           <section aria-labelledby="progress-tasks">
             <div className="flex items-center justify-between gap-2">
-              <h3 id="progress-tasks" className="text-xs font-bold uppercase tracking-wider text-ink-soft">
+              <h3
+                id="progress-tasks"
+                className="text-xs font-bold uppercase tracking-wider text-ink-soft"
+              >
                 Timeline tasks
               </h3>
-              <button type="button" className="btn-quiet min-h-7 text-xs font-semibold" onClick={() => onNavigate('timeline')}>
+              <button
+                type="button"
+                className="btn-quiet min-h-7 text-xs font-semibold"
+                onClick={() => onNavigate('timeline')}
+              >
                 Open
               </button>
             </div>
@@ -152,7 +171,9 @@ export function ProgressPanel({
                   >
                     <div className="flex items-center gap-2 min-w-0">
                       <Tick done={done} warn={delayed} />
-                      <span className={`font-semibold truncate ${done ? 'text-ink-soft line-through' : 'text-ink'}`}>
+                      <span
+                        className={`font-semibold truncate ${done ? 'text-ink-soft line-through' : 'text-ink'}`}
+                      >
                         {task.title}
                       </span>
                     </div>

@@ -59,9 +59,7 @@ const PATHS = {
     </>
   ),
   circle: <circle cx="12" cy="12" r="8" />,
-  sparkle: (
-    <path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2-2.2 6.3-2.2-6.3-6.3-2.2 6.3-2.2z" />
-  ),
+  sparkle: <path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2-2.2 6.3-2.2-6.3-6.3-2.2 6.3-2.2z" />,
   calendar: (
     <>
       <rect x="3.5" y="5" width="17" height="16" rx="2.5" />
@@ -156,7 +154,10 @@ export function BrandMark({ className = 'h-9 w-9' }: { className?: string }) {
       {/* Outer rounded glass substrate */}
       <rect width="36" height="36" rx="10" fill="url(#aura-liquid)" />
       {/* Specular sheen on top half */}
-      <path d="M0 10C0 4.477 4.477 0 10 0h16c5.523 0 10 4.477 10 10v6c0-5-8-10-18-10S0 11 0 16v-6z" fill="url(#aura-specular)" />
+      <path
+        d="M0 10C0 4.477 4.477 0 10 0h16c5.523 0 10 4.477 10 10v6c0-5-8-10-18-10S0 11 0 16v-6z"
+        fill="url(#aura-specular)"
+      />
       {/* Geometric crystal facets */}
       <polygon points="18,5 29,13 18,31 7,13" fill="#ffffff" fillOpacity="0.18" />
       <polygon points="18,8 26,14 18,27 10,14" fill="url(#aura-prism)" fillOpacity="0.9" />

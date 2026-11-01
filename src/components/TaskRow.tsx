@@ -61,7 +61,11 @@ export function TaskRow({
               : 'border-line text-ink-soft'
         }`}
       >
-        {done ? <Icon name="check" className="h-3.5 w-3.5 stroke-[2.5]" /> : <span className="h-2 w-2 rounded-full bg-current" />}
+        {done ? (
+          <Icon name="check" className="h-3.5 w-3.5 stroke-[2.5]" />
+        ) : (
+          <span className="h-2 w-2 rounded-full bg-current" />
+        )}
       </span>
 
       <div
@@ -75,7 +79,9 @@ export function TaskRow({
       >
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
-            <h4 className={`text-base font-bold ${done ? 'text-ink-soft line-through' : 'text-ink'}`}>
+            <h4
+              className={`text-base font-bold ${done ? 'text-ink-soft line-through' : 'text-ink'}`}
+            >
               {task.title}
             </h4>
             <p className="tabular mt-0.5 text-xs font-semibold text-ink-soft">
@@ -91,7 +97,9 @@ export function TaskRow({
 
         {flagged && (
           <div className="mt-2.5 flex flex-wrap gap-2">
-            {pushedBy && <Flag icon="alert" text={`Pushed by delay in "${titles[pushedBy] ?? pushedBy}"`} />}
+            {pushedBy && (
+              <Flag icon="alert" text={`Pushed by delay in "${titles[pushedBy] ?? pushedBy}"`} />
+            )}
             {task.flags.overdue && !done && <Flag icon="clock" text="Overdue" />}
             {task.flags.tooLate && !task.flags.overdue && !done && (
               <Flag icon="clock" text="Due date already passed" />
@@ -107,7 +115,10 @@ export function TaskRow({
           <p className="mt-2.5 flex flex-wrap items-center gap-1.5 text-xs">
             <span className="font-semibold text-ink-soft">Needs:</span>
             {task.dependsOn.map((id) => (
-              <span key={id} className="rounded-md border border-line bg-paper px-2 py-0.5 font-semibold text-ink">
+              <span
+                key={id}
+                className="rounded-md border border-line bg-paper px-2 py-0.5 font-semibold text-ink"
+              >
                 {titles[id] ?? id}
               </span>
             ))}

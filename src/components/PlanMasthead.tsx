@@ -38,7 +38,11 @@ export function PlanMasthead({ plan, today }: { plan: Plan; today: string }) {
       </div>
 
       <div className="mt-3.5">
-        <h2 id="plan-title" tabIndex={-1} className="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+        <h2
+          id="plan-title"
+          tabIndex={-1}
+          className="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl"
+        >
           {OCCASION_LABELS[plan.occasion]}
           <span className="block font-normal text-ink-soft sm:inline">
             <span className="hidden sm:inline"> · </span>
@@ -47,7 +51,9 @@ export function PlanMasthead({ plan, today }: { plan: Plan; today: string }) {
         </h2>
         {plan.vibe && (
           <p className="mt-2 inline-flex items-center gap-2 rounded-xl border border-line/60 bg-paper/80 px-3 py-1.5 text-xs sm:text-sm font-medium text-ink-soft backdrop-blur-sm shadow-sm">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-accent">Theme</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-accent">
+              Theme
+            </span>
             <span className="text-ink">&ldquo;{plan.vibe}&rdquo;</span>
           </p>
         )}

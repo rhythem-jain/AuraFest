@@ -37,7 +37,10 @@ export const PrintSummary = memo(function PrintSummary({
   const accepted = plan.quotes.filter((q) => q.accepted);
 
   return (
-    <article className="print-only print-sheet p-8 font-sans" aria-label="Plan summary for printing">
+    <article
+      className="print-only print-sheet p-8 font-sans"
+      aria-label="Plan summary for printing"
+    >
       <div className="border-b-2 border-ink pb-4">
         <div className="flex items-center justify-between">
           <p className="text-xs font-bold uppercase tracking-widest text-ink">
@@ -60,20 +63,32 @@ export const PrintSummary = memo(function PrintSummary({
         </p>
       </div>
 
-      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">Budget Allocation</h2>
+      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">
+        Budget Allocation
+      </h2>
       <table className="mt-2 w-full text-xs">
         <thead>
           <tr className="border-b border-ink">
-            <th scope="col" className="py-2 text-left">Category</th>
-            <th scope="col" className="py-2 text-left">Amount</th>
-            <th scope="col" className="py-2 text-left">Share</th>
-            <th scope="col" className="py-2 text-left">Basis</th>
+            <th scope="col" className="py-2 text-left">
+              Category
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Amount
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Share
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Basis
+            </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-300">
           {CATEGORIES.map((c) => (
             <tr key={c}>
-              <th scope="row" className="py-2 text-left font-semibold">{categoryLabel(plan.occasion, c)}</th>
+              <th scope="row" className="py-2 text-left font-semibold">
+                {categoryLabel(plan.occasion, c)}
+              </th>
               <td className="py-2">{formatINR(plan.allocation[c])}</td>
               <td className="py-2">{percentOf(plan.allocation[c], plan.totalBudget)}%</td>
               <td className="py-2">
@@ -90,14 +105,18 @@ export const PrintSummary = memo(function PrintSummary({
 
       {accepted.length > 0 && (
         <>
-          <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">Accepted Vendor Quotations</h2>
+          <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">
+            Accepted Vendor Quotations
+          </h2>
           <ul className="mt-2 list-disc pl-5 text-xs">
             {accepted.map((q) => {
               const cost = effectiveCost(q.quote, plan.guests);
               return (
                 <li key={q.id} className="py-0.5">
-                  <strong>{categoryLabel(plan.occasion, q.category)}: {q.quote.vendorName ?? 'Vendor'}</strong> ·{' '}
-                  {cost === null ? 'Price not stated' : formatINR(cost)}
+                  <strong>
+                    {categoryLabel(plan.occasion, q.category)}: {q.quote.vendorName ?? 'Vendor'}
+                  </strong>{' '}
+                  · {cost === null ? 'Price not stated' : formatINR(cost)}
                 </li>
               );
             })}
@@ -105,21 +124,35 @@ export const PrintSummary = memo(function PrintSummary({
         </>
       )}
 
-      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">Timeline & Key Milestones</h2>
+      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">
+        Timeline & Key Milestones
+      </h2>
       <table className="mt-2 w-full text-xs">
         <thead>
           <tr className="border-b border-ink">
-            <th scope="col" className="py-2 text-left">Milestone</th>
-            <th scope="col" className="py-2 text-left">Category</th>
-            <th scope="col" className="py-2 text-left">Target Date</th>
-            <th scope="col" className="py-2 text-left">Owner</th>
-            <th scope="col" className="py-2 text-left">Status</th>
+            <th scope="col" className="py-2 text-left">
+              Milestone
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Category
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Target Date
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Owner
+            </th>
+            <th scope="col" className="py-2 text-left">
+              Status
+            </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-300">
           {schedule.map((t) => (
             <tr key={t.id}>
-              <th scope="row" className="py-2 text-left font-semibold">{t.title}</th>
+              <th scope="row" className="py-2 text-left font-semibold">
+                {t.title}
+              </th>
               <td className="py-2">{categoryLabel(plan.occasion, t.category)}</td>
               <td className="py-2">{formatDate(t.effectiveDate)}</td>
               <td className="py-2">{t.assignee ?? '-'}</td>
@@ -129,7 +162,9 @@ export const PrintSummary = memo(function PrintSummary({
         </tbody>
       </table>
 
-      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">Day-of Protocol & Run Sheet</h2>
+      <h2 className="mt-6 text-base font-bold uppercase tracking-wider text-ink">
+        Day-of Protocol & Run Sheet
+      </h2>
       <ol className="mt-2 divide-y divide-gray-200 text-xs">
         {RUN_SHEETS[plan.occasion].map((item) => (
           <li key={item.time} className="flex gap-4 py-1.5">

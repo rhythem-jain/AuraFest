@@ -36,7 +36,10 @@ export function DescribeEvent({ onParsed }: { onParsed: (result: IntakeParse) =>
   }
 
   return (
-    <section className="card lg:sticky lg:top-24 shadow-glass backdrop-blur-xl" aria-labelledby="describe-h">
+    <section
+      className="card lg:sticky lg:top-24 shadow-glass backdrop-blur-xl"
+      aria-labelledby="describe-h"
+    >
       <div className="flex items-center gap-2.5">
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-soft text-accent">
           <Icon name="sparkle" className="h-4 w-4" />
@@ -68,7 +71,11 @@ export function DescribeEvent({ onParsed }: { onParsed: (result: IntakeParse) =>
         {description === '' && (
           <p id="describe-tab-hint" className="hint mt-1.5 flex items-center gap-1.5">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-            Press <kbd className="rounded-md border border-line bg-card px-1.5 py-0.5 text-[10px] font-bold shadow-sm">Tab</kbd> to use this example.
+            Press{' '}
+            <kbd className="rounded-md border border-line bg-card px-1.5 py-0.5 text-[10px] font-bold shadow-sm">
+              Tab
+            </kbd>{' '}
+            to use this example.
           </p>
         )}
       </div>

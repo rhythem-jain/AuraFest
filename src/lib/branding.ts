@@ -2,7 +2,7 @@
 export const BRAND = {
   name: 'AuraFest',
   company: 'AuraFest Technologies',
-  tagline: 'Precision Planning for Life\'s Defining Celebrations',
+  tagline: "Precision Planning for Life's Defining Celebrations",
   subtitle: 'One connected plan. Every celebration, elevated.',
   shortName: 'AuraFest',
   primaryColor: '#7c3aed',

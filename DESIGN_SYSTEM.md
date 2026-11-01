@@ -1,4 +1,5 @@
 # AuraFest Liquid Glass Design System
+
 ## Architectural Token & Component Specification
 
 ---
@@ -6,6 +7,7 @@
 ### 1. Design Philosophy
 
 AuraFest Luxe introduces an **Apple Liquid Glass** design aesthetic tailored for high-stakes celebration planning:
+
 - **Translucency with Purpose**: Glass panels let atmospheric depth shine through while keeping typography, data tables, and financial amounts 100% legible.
 - **Luminous Optical Edges**: Thin specular borders with subtle gradient highlights simulate physical refracted light.
 - **Ambient Chromatic Glow**: Atmospheric radial gradients in royal amethyst (`#7c3aed`), jade turquoise (`#0d9488`), and warm champagne gold (`#f59e0b`) create dimensionality behind frosted surfaces.
@@ -17,17 +19,17 @@ AuraFest Luxe introduces an **Apple Liquid Glass** design aesthetic tailored for
 
 #### Color Tokens (RGB values for alpha channel flexibility)
 
-| Token | Light Theme | Dark Theme | Purpose |
-|---|---|---|---|
-| `--paper` | `246 248 252` (Porcelain) | `11 15 25` (Obsidian) | Viewport background |
-| `--card` | `255 255 255` (Pure White) | `20 27 45` (Midnight Navy) | Glass card substrate |
-| `--field` | `255 255 255` | `28 38 62` | Input & table row background |
-| `--ink` | `15 23 42` (Deep Slate) | `248 250 252` (Alabaster) | Primary text |
-| `--ink-soft` | `71 85 105` (Muted Slate) | `186 199 217` (Soft Pearl) | Secondary text |
-| `--line` | `226 232 240` | `43 56 82` | Glass border contours |
-| `--accent` | `124 58 237` (Royal Amethyst) | `167 139 250` (Luminous Violet) | Primary brand highlight |
-| `--ok` | `22 101 52` (Emerald Forest) | `52 211 153` (Mint Jade) | Verified & on-track states |
-| `--warn` | `185 28 28` (Crimson Amber) | `251 113 133` (Coral Flame) | Over-budget & alert states |
+| Token        | Light Theme                   | Dark Theme                      | Purpose                      |
+| ------------ | ----------------------------- | ------------------------------- | ---------------------------- |
+| `--paper`    | `246 248 252` (Porcelain)     | `11 15 25` (Obsidian)           | Viewport background          |
+| `--card`     | `255 255 255` (Pure White)    | `20 27 45` (Midnight Navy)      | Glass card substrate         |
+| `--field`    | `255 255 255`                 | `28 38 62`                      | Input & table row background |
+| `--ink`      | `15 23 42` (Deep Slate)       | `248 250 252` (Alabaster)       | Primary text                 |
+| `--ink-soft` | `71 85 105` (Muted Slate)     | `186 199 217` (Soft Pearl)      | Secondary text               |
+| `--line`     | `226 232 240`                 | `43 56 82`                      | Glass border contours        |
+| `--accent`   | `124 58 237` (Royal Amethyst) | `167 139 250` (Luminous Violet) | Primary brand highlight      |
+| `--ok`       | `22 101 52` (Emerald Forest)  | `52 211 153` (Mint Jade)        | Verified & on-track states   |
+| `--warn`     | `185 28 28` (Crimson Amber)   | `251 113 133` (Coral Flame)     | Over-budget & alert states   |
 
 #### Category Jewel Swatches
 
