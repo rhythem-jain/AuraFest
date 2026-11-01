@@ -15,7 +15,9 @@ import type { Action } from '../state/planStore';
 import { useSyncedText } from '../lib/useSyncedText';
 import { AllocationBar, SWATCH_CLASS } from './AllocationBar';
 import { CategoryRow } from './CategoryRow';
-import { Icon } from './Icon';
+import { BudgetStatusBanner } from './BudgetStatusBanner';
+import { GuestImpactSummary } from './GuestImpactSummary';
+import { GuestQuickScenarioButtons } from './GuestQuickScenarioButtons';
 import { TradeoffPanel } from './TradeoffPanel';
 import { Field } from './ui';
 
@@ -117,37 +119,7 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
         data-testid="over-budget-region"
         className="sticky top-20 z-20"
       >
-        {over ? (
-          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-2xl border border-warn/40 bg-warn-soft/95 px-5 text-warn shadow-elevated backdrop-blur-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-warn text-on-accent shadow-sm">
-              <Icon name="alert" className="h-5 w-5" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-bold sm:text-base">
-                Over budget by {formatINR(status.overBy)}
-              </p>
-              <p className="truncate text-xs font-medium sm:text-sm">
-                {status.overByPct}% of your total. Nothing was changed automatically.
-              </p>
-            </div>
-            <button
-              type="button"
-              className="btn-primary min-h-10 shrink-0 border border-warn/30 bg-warn text-white shadow-sm hover:bg-warn/90"
-              onClick={showOptions}
-            >
-              Options
-            </button>
-          </div>
-        ) : (
-          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-2xl border border-ok/30 bg-card/90 px-5 text-ink-soft shadow-glass backdrop-blur-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-ok-soft text-ok shadow-sm">
-              <Icon name="check" className="h-5 w-5 text-ok" />
-            </div>
-            <p className="truncate text-sm font-semibold text-ink">
-              Within budget. Everything adds up to {formatINR(status.total)}.
-            </p>
-          </div>
-        )}
+        <BudgetStatusBanner over={over} overBy={status.overBy} overByPct={status.overByPct} total={status.total} onShowOptions={showOptions} />
       </div>
 
       <section aria-labelledby="cats-h">
@@ -209,22 +181,13 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
               <span className="text-[10px] font-bold uppercase tracking-wider text-ink-soft">
                 Quick scenario:
               </span>
-              {[-25, 25, 50].map((delta) => {
-                const target = Math.max(1, plan.guests + delta);
-                return (
-                  <button
-                    key={delta}
-                    type="button"
-                    className="rounded-lg border border-line/70 bg-paper/70 px-2 py-0.5 text-[11px] font-semibold text-ink-soft hover:bg-card hover:text-ink shadow-sm"
-                    onClick={() => {
-                      setGuestsText(String(target));
-                      dispatch({ type: 'setGuests', guests: target });
-                    }}
-                  >
-                    {delta > 0 ? `+${delta}` : delta}
-                  </button>
-                );
-              })}
+              <GuestQuickScenarioButtons
+                guests={plan.guests}
+                onSelect={(target) => {
+                  setGuestsText(String(target));
+                  dispatch({ type: 'setGuests', guests: target });
+                }}
+              />
             </div>
           </div>
           <Field label="Total budget (₹)" hint="Try 8 lakh or 8,00,000">
@@ -256,23 +219,7 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
           </Field>
         </div>
         <div className="mt-5 rounded-2xl border border-line/70 bg-field/60 p-4 shadow-sm backdrop-blur-sm">
-          <p className="tabular text-sm font-medium text-ink" data-testid="guest-impact">
-            {plan.guests} guests × {formatINR(Math.round(impact.perPlate))} per plate needs{' '}
-            <strong className="font-bold text-accent">{formatINR(impact.requiredCatering)}</strong>{' '}
-            for catering. You have budgeted{' '}
-            <strong className="font-bold text-ink">{formatINR(impact.currentCatering)}</strong>
-            {impact.overBy > 0 ? (
-              <>
-                :{' '}
-                <span className="inline-flex items-center gap-1 font-bold text-warn">
-                  <Icon name="alert" className="h-4 w-4" />
-                  {formatINR(impact.overBy)} short.
-                </span>
-              </>
-            ) : (
-              '. That covers it.'
-            )}
-          </p>
+          <GuestImpactSummary guests={plan.guests} impact={impact} />
         </div>
       </section>
 
