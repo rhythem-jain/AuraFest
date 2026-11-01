@@ -119,7 +119,13 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
         data-testid="over-budget-region"
         className="sticky top-20 z-20"
       >
-        <BudgetStatusBanner over={over} overBy={status.overBy} overByPct={status.overByPct} total={status.total} onShowOptions={showOptions} />
+        <BudgetStatusBanner
+          over={over}
+          overBy={status.overBy}
+          overByPct={status.overByPct}
+          total={status.total}
+          onShowOptions={showOptions}
+        />
       </div>
 
       <section aria-labelledby="cats-h">
