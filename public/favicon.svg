@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="aura-liquid" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+    <linearGradient id="aura-specular" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="aura-prism" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+  <rect width="36" height="36" rx="10" fill="url(#aura-liquid)" />
+  <path d="M0 10C0 4.477 4.477 0 10 0h16c5.523 0 10 4.477 10 10v6c0-5-8-10-18-10S0 11 0 16v-6z" fill="url(#aura-specular)" />
+  <polygon points="18,5 29,13 18,31 7,13" fill="#ffffff" fill-opacity="0.18" />
+  <polygon points="18,8 26,14 18,27 10,14" fill="url(#aura-prism)" fill-opacity="0.9" />
+  <circle cx="18" cy="15.5" r="3" fill="#ffffff" />
+  <circle cx="18" cy="15.5" r="1.5" fill="#6366f1" />
+</svg>
