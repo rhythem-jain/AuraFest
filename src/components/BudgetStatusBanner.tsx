@@ -35,7 +35,9 @@ export function BudgetStatusBanner({
         <Icon name="alert" className="h-5 w-5" />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-bold sm:text-base">Over budget by {formatINR(overBy)}</p>
+        <p className="truncate text-sm font-bold sm:text-base">
+          Over budget by {formatINR(overBy)}
+        </p>
         <p className="truncate text-xs font-medium sm:text-sm">
           {overByPct}% of your total. Nothing was changed automatically.
         </p>

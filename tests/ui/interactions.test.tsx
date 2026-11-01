@@ -79,6 +79,13 @@ describe('comparison table actions', () => {
 });
 
 describe('small confirmations and toasts', () => {
+  it('quick guest scenario buttons update guests immediately', async () => {
+    const { user } = renderWithPlan();
+    await user.click(screen.getByRole('tab', { name: 'Budget' }));
+    await user.click(screen.getByRole('button', { name: '+25' }));
+    expect(first(screen.getAllByLabelText('Number of guests'))).toHaveValue(225);
+  });
+
   it('cancelling an option confirmation keeps the plan unchanged', async () => {
     const { user } = renderWithPlan();
     await user.click(screen.getByRole('tab', { name: 'Budget' }));
